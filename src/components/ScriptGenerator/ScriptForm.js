@@ -32,7 +32,7 @@ function ScriptForm() {
     <div>
       <form onSubmit={handleSubmit}>
         <label>
-          Enter your prompt:
+          Enter your prompt:                             (you should wait for few mins)
           <input
             type="text"
             value={prompt}
