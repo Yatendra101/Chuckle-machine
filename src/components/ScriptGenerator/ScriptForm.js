@@ -15,29 +15,10 @@ function ScriptForm() {
         parameters: {
           max_length: 100 , // Adjust the max length as needed
           temperature: 0.7, // Controls randomness (Lower = More Deterministic)
-          top_p: 0.9 // Nucleus Sampling (Lower = More Focused Choices)
-          const handleSubmit = async (e) => {
-  e.preventDefault();
-  try {
-    const response = await huggingFaceAPI.post('', {
-      inputs: prompt,
-      parameters: {
-        max_length: 150, // Increase if needed
-        temperature: 0.7, // Adjust for variety (try 0.5–0.9)
-        top_p: 0.9, // Nucleus sampling for controlled randomness
-        repetition_penalty: 1.5, // Penalize repeated words (higher = fewer repetitions)
-        no_repeat_ngram_size: 3, // Prevents repeating sequences of words
-        do_sample: true // Ensures diverse sampling
-      }
-    });
-
-    setScript(response.data[0].generated_text.trim());
-  } catch (error) {
-    console.error('Error generating script:', error);
-    setScript('Error generating script.');
-  }
-};
-
+          top_p: 0.9, // Nucleus Sampling (Lower = More Focused Choices)
+          repetition_penalty: 1.5, // Penalize repeated words (higher = fewer repetitions)
+          no_repeat_ngram_size: 3, // Prevents repeating sequences of words
+          do_sample: true // Ensures diverse sampling 
         }
       });
       setScript(response.data[0].generated_text.trim()); // Adjust based on the API response structure
