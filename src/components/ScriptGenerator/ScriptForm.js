@@ -13,9 +13,9 @@ function ScriptForm() {
       const response = await huggingFaceAPI.post('', {
         inputs: prompt,
         parameters: {
-          max_length: 100 // Adjust the max length as needed
-           temperature: 0.7, // Controls randomness (Lower = More Deterministic)
-        top_p: 0.9 // Nucleus Sampling (Lower = More Focused Choices)
+          max_length: 100 , // Adjust the max length as needed
+          temperature: 0.7, // Controls randomness (Lower = More Deterministic)
+          top_p: 0.9 // Nucleus Sampling (Lower = More Focused Choices)
         }
       });
       setScript(response.data[0].generated_text.trim()); // Adjust based on the API response structure
